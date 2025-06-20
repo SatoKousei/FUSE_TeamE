@@ -7,18 +7,33 @@ public class Player : MonoBehaviour
     Rigidbody rb;
     bool isGround = false;  //地面にいるかどうか
     float timer;
-    // Start is called before the first frame update
+    Animator animator; // 追加
+
     void Start()
     {
         rb = GetComponent<Rigidbody>();
+        animator = GetComponent<Animator>(); // 追加
     }
 
-    // Update is called once per frame
     void Update()
     {
         if (Input.GetKey(KeyCode.D))
         {
-            transform.Translate(Vector3.right * 3 * Time.deltaTime);
+            transform.Translate(Vector3.forward * 3 * Time.deltaTime);
+            if (Input.GetKey(KeyCode.D))
+            {
+                transform.Translate(Vector3.forward * 3 * Time.deltaTime);
+                animator.Play("Walk Forward"); // ステート名を直接指定
+            }
+            else
+            {
+                animator.Play("Idle");
+            }
+            animator.SetBool("Walk Forward", true); // 歩くモーションに
+        }
+        else
+        {
+            animator.SetBool("Idle", false); // 待機モーションに
         }
 
         Vector3 camera_pos = Camera.main.transform.position;
