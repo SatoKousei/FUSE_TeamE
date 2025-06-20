@@ -16,8 +16,10 @@ public class Player : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        float h = Input.GetAxis("Horizontal") * Time.deltaTime;
-        transform.Translate(Vector3.right * h * 3);
+        if (Input.GetKey(KeyCode.D))
+        {
+            transform.Translate(Vector3.right * 3 * Time.deltaTime);
+        }
 
         Vector3 camera_pos = Camera.main.transform.position;
         camera_pos.x = transform.position.x;
