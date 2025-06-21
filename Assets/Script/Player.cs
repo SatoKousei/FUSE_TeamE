@@ -14,6 +14,7 @@ public class Player : MonoBehaviour
     Vector3 attackSize;
     Vector3 attackCenter;
     AudioBehaviour au;
+    PlayerHP playerHP;
 
     void Start()
     {
