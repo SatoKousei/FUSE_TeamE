@@ -13,6 +13,7 @@ public class Player : MonoBehaviour
     Vector3 defaultCenter;
     Vector3 attackSize;
     Vector3 attackCenter;
+    AudioBehaviour au;
 
     void Start()
     {
@@ -21,6 +22,7 @@ public class Player : MonoBehaviour
         boxCollider = GetComponent<BoxCollider>();
         defaultSize = boxCollider.size;
         defaultCenter = boxCollider.center;
+        au = GetComponent<AudioBehaviour>();
 
         // Z方向だけ前方にずらす
         attackSize = new Vector3(defaultSize.x, defaultSize.y, 5f);
@@ -43,6 +45,7 @@ public class Player : MonoBehaviour
         // スペースキーで攻撃
         if (Input.GetKeyDown(KeyCode.Space))
         {
+            au.GetComponent<AudioSource>().Play();
             animator.SetBool("Attack", true);
             boxCollider.size = attackSize;
             boxCollider.center = attackCenter;
