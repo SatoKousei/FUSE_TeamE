@@ -9,7 +9,7 @@ public class Kids : MonoBehaviour
 
     void Start()
     {
-        GameObject o = GameObject.Find("Bear_4"); // ‚±‚±‚ðBear_4‚É
+        GameObject o = GameObject.Find("Bear"); // ‚±‚±‚ðBear_4‚É
         p = o.GetComponent<Player>();
     }
 
