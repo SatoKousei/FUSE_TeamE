@@ -37,7 +37,7 @@ public class Player : MonoBehaviour
             animator.SetBool("Attack", false);
         }
         Vector3 camera_pos = Camera.main.transform.position;
-        camera_pos.x = transform.position.x;
+        camera_pos.x = transform.position.x +3;
         Camera.main.transform.position = camera_pos;
     }
 }
