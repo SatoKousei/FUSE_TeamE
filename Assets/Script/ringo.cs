@@ -4,6 +4,14 @@ using UnityEngine;
 
 public class ringo : MonoBehaviour
 {
+    public PlayerHP playerHP; // PlayerHPスクリプトへの参照  
+    private void Start()
+    {
+        playerHP = GetComponent<PlayerHP>();
+    }
+    void Update()
+    {
+    }
     void OnCollisionEnter(Collision collision)
     {
         Debug.Log("リンゴを取ったよ！"); // デバッグ用メッセージ

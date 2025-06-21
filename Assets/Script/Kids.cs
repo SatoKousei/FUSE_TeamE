@@ -6,23 +6,15 @@ public class Kids : MonoBehaviour
 {
     [SerializeField] Player p;
     private bool isStopped = false;
-
     void Start()
     {
         GameObject o = GameObject.Find("Bear"); // ‚±‚±‚ðBear_4‚É
-        p = o.GetComponent<Player>();
     }
 
     void Update()
     {
-        if (isStopped) return;
-
-        Vector3 v = p.transform.position - transform.position;
-        v.Normalize();
-        v.y = 0; // yŽ²•ûŒü‚ÌˆÚ“®‚Í‚µ‚È‚¢
-        transform.Translate(v * Time.deltaTime);
     }
-
+     
     private void OnCollisionEnter(Collision collision)
     {
         if (collision.gameObject.tag == "Player")
@@ -36,6 +28,7 @@ public class Kids : MonoBehaviour
         if (collision.gameObject.tag == "Player")
         {
             isStopped = false;
+            
         }
     }
 }
